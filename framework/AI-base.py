@@ -1,8 +1,8 @@
-from copy import deepcopy
+from neuralNetworkBase import nueralNetwork
 
 class AI:
-    def __init__(self, matrix, id) -> None:
-        self.nueralNetwork = matrix.deepcopy()
+    def __init__(self, parameters, id) -> None:
+        self.nueralNetwork = nueralNetwork(parameters)
         self.id = id
     
     def randomize(self):
