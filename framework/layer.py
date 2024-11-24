@@ -10,8 +10,25 @@ class Layer:
         self.size = size
 
 
+class InputLayer(Layer):
+    def create_nodes(self):
+        """
+        Creates the input Nodes (Does not have weigh or bias)"""
+        self.inputs = [
+            0 for _ in range(self.size)
+        ]  # Creates a list of 0 based on number of inputs (size)
+
+    def set_inputs(self, values: list) -> None:
+        """
+        Sets the values of the input nodes to the respective value in the values parameter\n
+        *Throws Error if list sizes do not match*"""
+        if not len(self.inputs) == len(values):
+            raise Exception("Input Layer Size and new Values size do not match")
+        self.inputs = values
+
+
 class HiddenLayer(Layer):
-    def create_nodes(self, rand_values: bool, bias_range: float):
+    def create_nodes(self, rand_values: bool, bias_range: float) -> None:
         """
         **rand_values:** *[bool]* if **True** randomly generate values for the Weight and Bias of each node **Else** sets both to 0\n
         **bias_range:** *[float]* possible range for the bias of each node **WHEN RANDOMLY GENERATED** (*max* = 0 + value, *min* = 0 - value)
@@ -23,7 +40,7 @@ class HiddenLayer(Layer):
         if rand_values:
             self.randomize_nodes(bias_range)  # If specified, randomize the Node values
 
-    def randomize_nodes(self, bias_range: float):
+    def randomize_nodes(self, bias_range: float) -> None:
         """
         #### Randomizes the **Weights** and **Biases** of each node\n
         **bias_range:** the *Min* and *Max* value of the new random Bias

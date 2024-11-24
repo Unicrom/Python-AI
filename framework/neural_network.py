@@ -1,4 +1,4 @@
-from framework.layer import HiddenLayer
+from framework.layer import InputLayer, HiddenLayer
 
 
 class NeuralNetwork:
@@ -11,6 +11,9 @@ class NeuralNetwork:
         **rand_values:** *[bool]* if **True** sets the weights and biases of each hidden layer node to a random value **Else** sets all to 0\n
         **bias_range:** *[float]* possible range for the bias of each node **WHEN RANDOMLY GENERATED** (*max* = 0 + value, *min* = 0 - value)
         """
+        self.input_layer = InputLayer(parameters[0]) # Creates InputLayer based on first item in parameters list
+        self.input_layer.create_nodes()
+
         # Creates a list storing the Hidden Layers
         self.hidden_layers = [
             HiddenLayer(layer_size)  # New Hidden Layer
