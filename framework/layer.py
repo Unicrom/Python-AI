@@ -61,6 +61,7 @@ class OutputLayer(HiddenLayer):
     def get_top_node(self) -> int:
         """
         Returns the index of which Node has the highest value"""
+        # TODO Add temperature to decision
         highest_value = 0
         for i, node in enumerate(self.nodes):  # Loops through Output Nodes
             if highest_value > node.value:

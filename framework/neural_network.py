@@ -11,7 +11,9 @@ class NeuralNetwork:
         **rand_values:** *[bool]* if **True** sets the weights and biases of each hidden layer node to a random value **Else** sets all to 0\n
         **bias_range:** *[float]* possible range for the bias of each node **WHEN RANDOMLY GENERATED** (*max* = 0 + value, *min* = 0 - value)
         """
-        self.input_layer = InputLayer(parameters[0]) # Creates InputLayer based on first item in parameters list
+        self.input_layer = InputLayer(
+            parameters[0]
+        )  # Creates InputLayer based on first item in parameters list
         self.input_layer.create_nodes()
 
         # Creates a list storing the Hidden Layers
@@ -21,11 +23,14 @@ class NeuralNetwork:
                 1:-1
             ]  # Loops through the values (layer size) of parameters excluding the first and last item.
         ]
-        for layer in self.hidden_layers: # Creates the Nodes for each Hidden Layer
+        for layer in self.hidden_layers:  # Creates the Nodes for each Hidden Layer
             layer.create_nodes(rand_values, bias_range)
 
-        self.output_layer = OutputLayer(parameters[-1]) # Creates InputLayer based on last item in parameters list
+        self.output_layer = OutputLayer(
+            parameters[-1]
+        )  # Creates InputLayer based on last item in parameters list
         self.output_layer.create_nodes(rand_values, bias_range)
+
     def randomize(self, bias_range: float) -> None:
         """
         Randomizes the Weights and Biases of each Node of each Hidden layer\n
