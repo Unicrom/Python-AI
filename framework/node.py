@@ -6,6 +6,7 @@ class Node:
         '''
         self.weight = weight
         self.bias = bias
+        self.value = 0
     
     def set_weight(self, new_weight:bool) -> None:
         '''

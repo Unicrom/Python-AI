@@ -55,3 +55,18 @@ class HiddenLayer(Layer):
 
             node.set_weight(rand_weight)
             node.set_bias(rand_bias)
+
+
+class OutputLayer(HiddenLayer):
+    def get_top_node(self) -> int:
+        """
+        Returns the index of which Node has the highest value"""
+        highest_value = 0
+        for i, node in enumerate(self.nodes):  # Loops through Output Nodes
+            if highest_value > node.value:
+                continue  # Goes to the next iteration if value of node not higher not the greatest
+
+            highest_value = node.value
+            highest_value_index = i
+
+        return highest_value_index

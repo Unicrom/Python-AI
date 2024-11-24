@@ -1,4 +1,4 @@
-from framework.layer import InputLayer, HiddenLayer
+from framework.layer import InputLayer, HiddenLayer, OutputLayer
 
 
 class NeuralNetwork:
@@ -24,6 +24,8 @@ class NeuralNetwork:
         for layer in self.hidden_layers: # Creates the Nodes for each Hidden Layer
             layer.create_nodes(rand_values, bias_range)
 
+        self.output_layer = OutputLayer(parameters[-1]) # Creates InputLayer based on last item in parameters list
+        self.output_layer.create_nodes(rand_values, bias_range)
     def randomize(self, bias_range: float) -> None:
         """
         Randomizes the Weights and Biases of each Node of each Hidden layer\n
