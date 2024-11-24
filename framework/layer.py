@@ -3,15 +3,21 @@ from random import random
 
 
 class Layer:
-    def __init__(self, size: int, rand_values: bool, bias_range: float) -> None:
+    def __init__(self, size: int) -> None:
         """
-        **size:** *[int]* number of nodes in layer\n
+        **size:** *[int]* number of nodes in layer
+        """
+        self.size = size
+
+
+class HiddenLayer(Layer):
+    def create_nodes(self, rand_values: bool, bias_range: float):
+        """
         **rand_values:** *[bool]* if **True** randomly generate values for the Weight and Bias of each node **Else** sets both to 0\n
         **bias_range:** *[float]* possible range for the bias of each node **WHEN RANDOMLY GENERATED** (*max* = 0 + value, *min* = 0 - value)
         """
-        self.size = size
         self.nodes = [
-            Node(0, 0) for _ in range(size)
+            Node(0, 0) for _ in range(self.size)
         ]  # Creates list of Nodes with weight = 0 and bias = 0
 
         if rand_values:
