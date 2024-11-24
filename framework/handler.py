@@ -1,1 +1,1 @@
-from baseAI import AI
+from framework.base_ai import BaseAI
