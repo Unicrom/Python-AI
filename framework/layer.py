@@ -18,10 +18,10 @@ class Layer:
             self.randomize_nodes(bias_range)  # If specified, randomize the Node values
 
     def randomize_nodes(self, bias_range: float):
-        '''
+        """
         #### Randomizes the **Weights** and **Biases** of each node\n
         **bias_range:** the *Min* and *Max* value of the new random Bias
-        '''
+        """
         for node in self.nodes:
             rand_weight = round(
                 random() * 2 - 1, 4
@@ -32,4 +32,3 @@ class Layer:
 
             node.set_weight(rand_weight)
             node.set_bias(rand_bias)
-
