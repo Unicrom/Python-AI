@@ -1,4 +1,4 @@
-class nueralNetwork:
+class neuralNetwork:
     def __init__(self, parameters) -> None:
         pass
     

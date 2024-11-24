@@ -1,8 +1,8 @@
-from neuralNetworkBase import nueralNetwork
+from neuralNetworkBase import neuralNetwork
 
 class AI:
     def __init__(self, parameters, id) -> None:
-        self.nueralNetwork = nueralNetwork(parameters)
+        self.neuralNetwork = neuralNetwork(parameters)
         self.id = id
     
     def randomize(self):
