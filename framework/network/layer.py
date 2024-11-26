@@ -1,11 +1,11 @@
-from framework.node import Node
+from framework.network.node import Node
 from random import random
 
 
 class Layer:
     def __init__(self, size: int) -> None:
         """
-        **size:** *[int]* number of nodes in layer
+        **size:** `int` number of nodes in layer
         """
         self.size = size
 
@@ -30,8 +30,8 @@ class InputLayer(Layer):
 class HiddenLayer(Layer):
     def create_nodes(self, rand_values: bool, bias_range: float) -> None:
         """
-        **rand_values:** *[bool]* if **True** randomly generate values for the Weight and Bias of each node **Else** sets both to 0\n
-        **bias_range:** *[float]* possible range for the bias of each node **WHEN RANDOMLY GENERATED** (*max* = 0 + value, *min* = 0 - value)
+        **rand_values:** `bool` if **True** randomly generate values for the Weight and Bias of each node **Else** sets both to 0\n
+        **bias_range:** `float` possible range for the bias of each node **WHEN RANDOMLY GENERATED** (*max* = 0 + value, *min* = 0 - value)
         """
         self.nodes = [
             Node(0, 0) for _ in range(self.size)

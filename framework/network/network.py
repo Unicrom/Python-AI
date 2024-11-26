@@ -1,4 +1,4 @@
-from framework.layer import InputLayer, HiddenLayer, OutputLayer
+from framework.network.layer import InputLayer, HiddenLayer, OutputLayer
 
 
 class NeuralNetwork:
@@ -8,8 +8,8 @@ class NeuralNetwork:
         > Creates **Input** and **Output** layers based on the first and last index of **parameters** respectively\n
         > Creates **Hidden** layers based on the remaining values within **parameters**\n
         ---
-        **rand_values:** *[bool]* if **True** sets the weights and biases of each hidden layer node to a random value **Else** sets all to 0\n
-        **bias_range:** *[float]* possible range for the bias of each node **WHEN RANDOMLY GENERATED** (*max* = 0 + value, *min* = 0 - value)
+        **rand_values:** `bool` if **True** sets the weights and biases of each hidden layer node to a random value **Else** sets all to 0\n
+        **bias_range:** `float` possible range for the bias of each node **WHEN RANDOMLY GENERATED** (*max* = 0 + value, *min* = 0 - value)
         """
         self.input_layer = InputLayer(
             parameters[0]
@@ -34,7 +34,7 @@ class NeuralNetwork:
     def randomize(self, bias_range: float) -> None:
         """
         Randomizes the Weights and Biases of each Node of each Hidden layer\n
-        **bias_range:** *[float]* possible range for the bias of each node (*max* = 0 + value, *min* = 0 - value)
+        **bias_range:** `float` possible range for the bias of each node (*max* = 0 + value, *min* = 0 - value)
         """
         for layer in self.hidden_layers:
             layer.randomize_nodes(bias_range)
