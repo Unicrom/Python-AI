@@ -1,4 +1,4 @@
-from framework.network.layer import InputLayer, HiddenLayer, OutputLayer
+from framework.network.layers import InputLayer, HiddenLayer, OutputLayer
 
 
 class NeuralNetwork:
@@ -38,3 +38,4 @@ class NeuralNetwork:
         """
         for layer in self.hidden_layers:
             layer.randomize_nodes(bias_range)
+        self.output_layer.randomize_nodes(bias_range)
